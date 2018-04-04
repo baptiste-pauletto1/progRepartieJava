@@ -26,6 +26,16 @@ public class ClientSmtp {
 
             System.out.println(bufferedReader.readLine()); // Reception connexion OK
 
+            write(bufferedWriter,bufferedReader,"EHLO " + hostname);
+
+            while (true){
+                serveurAnswer = bufferedReader.readLine();
+                System.out.println(serveurAnswer);
+                if (serveurAnswer.charAt(3) != '-') break;
+            }
+
+            // On pourrait faire un EHLO hostname, mais comme on connait toutes nos propres informations, je n'ai pas souhaité le faire.
+
             write(bufferedWriter,bufferedReader,"MAIL FROM: " + from);
             write(bufferedWriter,bufferedReader,"RCPT TO: " + to);
             write(bufferedWriter,bufferedReader,"DATA");
