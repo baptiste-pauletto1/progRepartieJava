@@ -13,7 +13,9 @@ public class main {
         //ServeurTcpEchoMulti serveurTcpEchoMulti = new ServeurTcpEchoMulti(50013);
         //serveurTcpEchoMulti.demarrer();
 
-        ClientSmtp clientSmtp = new ClientSmtp("139.124.187.23",25,"pauletto");
-        clientSmtp.send("Pape.Francois<lemaildupape@paradis.com>","pech","Bonjour, mon frère","Bonjour mon bon, ici le pape, je te souhaite de passer une belle journée ensoleillée ! \nA la prochaine ! \nQue Dieu te protège et te guide dans le droit chemin !");
+        //ClientSmtp clientSmtp = new ClientSmtp("139.124.187.23",25,"pauletto");
+        //clientSmtp.send("Pape.Francois<lemaildupape@paradis.com>","pech","Bonjour, mon frère","Bonjour mon bon, ici le pape, je te souhaite de passer une belle journée ensoleillée ! \nA la prochaine ! \nQue Dieu te protège et te guide dans le droit chemin !");
+        ClientPop3 clientPop3 = new ClientPop3("139.124.187.23",110);
+        clientPop3.recupMail("pauletto","pauletto",1);
     }
 }
